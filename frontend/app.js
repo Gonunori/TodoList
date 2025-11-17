@@ -177,11 +177,9 @@ function sortTodosByDueDate(todos) {
         
         // 마감일이 가까운 순으로 정렬
         // 날짜 형식 처리 (ISO 형식과 YYYY-MM-DD 형식 모두 지원)
-        // 다른 날짜 처리 함수들(formatDueDate, isOverdue, isUrgent)과 일관성 유지
         let dateAStr = a.dueDate;
         let dateBStr = b.dueDate;
         
-        // ISO 형식이 아닌 경우에만 'T23:59:59' 추가
         if (typeof dateAStr === 'string' && !dateAStr.includes('T')) {
             dateAStr = dateAStr + 'T23:59:59';
         }
@@ -848,3 +846,4 @@ function checkDueDateNotifications() {
         });
     }
 }
+
