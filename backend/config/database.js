@@ -1,13 +1,14 @@
 const mariadb = require('mariadb');
+require('dotenv').config();
 
 // 데이터베이스 연결 풀 생성
 const pool = mariadb.createPool({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: '1234',
-    database: 'todo',
-    connectionLimit: 5
+    host: process.env.DB_HOST || 'localhost',
+    port: parseInt(process.env.DB_PORT) || 3306,
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'todo',
+    connectionLimit: parseInt(process.env.DB_CONNECTION_LIMIT) || 5
 });
 
 // 데이터베이스 연결 테스트

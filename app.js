@@ -176,27 +176,8 @@ function sortTodosByDueDate(todos) {
         if (!b.dueDate) return -1;
         
         // 마감일이 가까운 순으로 정렬
-        // 날짜 형식 처리 (ISO 형식과 YYYY-MM-DD 형식 모두 지원)
-        // 다른 날짜 처리 함수들(formatDueDate, isOverdue, isUrgent)과 일관성 유지
-        let dateAStr = a.dueDate;
-        let dateBStr = b.dueDate;
-        
-        // ISO 형식이 아닌 경우에만 'T23:59:59' 추가
-        if (typeof dateAStr === 'string' && !dateAStr.includes('T')) {
-            dateAStr = dateAStr + 'T23:59:59';
-        }
-        if (typeof dateBStr === 'string' && !dateBStr.includes('T')) {
-            dateBStr = dateBStr + 'T23:59:59';
-        }
-        
-        const dateA = new Date(dateAStr);
-        const dateB = new Date(dateBStr);
-        
-        // 유효하지 않은 날짜 처리
-        if (isNaN(dateA.getTime()) || isNaN(dateB.getTime())) {
-            return 0;
-        }
-        
+        const dateA = new Date(a.dueDate + 'T23:59:59');
+        const dateB = new Date(b.dueDate + 'T23:59:59');
         return dateA - dateB;
     });
 }
@@ -848,3 +829,4 @@ function checkDueDateNotifications() {
         });
     }
 }
+

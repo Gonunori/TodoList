@@ -72,9 +72,9 @@ npm start
 ## 데이터베이스 설정
 
 - **호스트**: localhost
-- **포트**: 3306
+- **포트**: 3312
 - **사용자**: root
-- **비밀번호**: 1234
+- **비밀번호**: 1wjadbdbfdlsmfrh%WJQTHRWKRKSMFDJ0
 - **데이터베이스**: todo
 
 설정을 변경하려면 `config/database.js` 파일을 수정하세요.
